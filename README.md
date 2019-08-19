@@ -83,6 +83,17 @@ $ gl registry status
 +---------------------------+------+-------------+
 ```
 
+```bash
+$ gl registry list
+
++---------------------------+-----------------------+-----------+-------------------------------+-----------+
+| Registry                  |                   Tag | Image_ID  | Created_at                    | Size      |
++---------------------------+-----------------------+-----------+-------------------------------+-----------+
+| XXXXXXXXXXXXXXXXXXXXXXXXX |                latest | 90112d580 | 2019-08-19T12:23:11.129+02:00 | 305.42 MB |
+| XXXXXXXXXXXXXXXXXXXXXXXXX |               v0.87.3 | 90112d580 | 2019-08-19T12:23:11.129+02:00 | 305.42 MB |
++---------------------------+-----------------------+-----------+-------------------------------+-----------+
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
