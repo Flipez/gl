@@ -15,6 +15,7 @@ Inside your git workspace you can issue the following commands:
 $ gl
 
 Commands:
+  gl global          # commands unrelated to the current project
   gl help [COMMAND]  # Describe available commands or one specific command
   gl issues          # handle issues of the project
   gl mr              # handle merge requests of the project
@@ -68,6 +69,18 @@ Your can also directly open an issue or merge request with a IID:
 $ gl issue open 409
 # or
 $ gl mr open 213
+```
+
+With the registry subcommand you can get a overview about the registry usage.
+
+```bash
+$ gl registry status
+
++---------------------------+------+-------------+
+| Registry                  | Tags | Size        |
++---------------------------+------+-------------+
+| XXXXXXXXXXXXXXXXXXXXXXXXX |   42 | 13511.85 MB |
++---------------------------+------+-------------+
 ```
 
 ## Development

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gl (0.2.0)
+    gl (0.2.1)
       gitlab (~> 4.12)
       thor (~> 0.20.3)
       tty-progressbar (~> 0.17.0)
