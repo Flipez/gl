@@ -8,7 +8,6 @@ require 'tty-table'
 require 'tty-prompt'
 require 'tty-box'
 require 'tty-screen'
-require 'tty-markdown'
 
 require 'gl/cli'
 

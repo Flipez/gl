@@ -31,7 +31,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'gitlab', '~> 4.12'
   spec.add_dependency 'thor', '~> 0.20.3'
   spec.add_dependency 'tty-box'
-  spec.add_dependency 'tty-markdown'
   spec.add_dependency 'tty-progressbar', '~> 0.17.0'
   spec.add_dependency 'tty-prompt', '~> 0.19.0'
   spec.add_dependency 'tty-screen'

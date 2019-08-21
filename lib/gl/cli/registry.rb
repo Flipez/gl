@@ -43,7 +43,6 @@ module Gl
           rescue Gitlab::Error::NotFound
             next
           end
-
         end
       end
       puts table.render(:ascii, alignments: %i[left right], padding: [0, 1])
