@@ -20,20 +20,30 @@ module Gl
       Gl.open_in_browser("#{Gl.current_project}/merge_requests/#{id}")
     end
 
-    desc 'ready', 'marks a merge request as reviewable'
-    def ready(id = nil)
-      id ||= merge_request_dialogue
+    desc 'label', 'add a label to a merge request'
+    def label(label)
+      label_action(label)
+    end
+
+    desc 'unlabel', 'remove a label from a merge request'
+    def unlabel(label)
+      label_action(label)
+    end
+
+    private
+
+    def label_action(label)
+      id = merge_request_dialogue
+      action = caller_locations(1, 1)[0].label
 
       begin
         Gitlab.create_merge_request_note(Gl.current_project,
                                          id,
-                                         '/label ~"Status::Reviewable"')
+                                         "/#{action} ~\"#{label}\"")
       rescue Gitlab::Error::BadRequest
         true
       end
     end
-
-    private
 
     def merge_request_dialogue(project = nil)
       prompt = TTY::Prompt.new(interrupt: :exit)
