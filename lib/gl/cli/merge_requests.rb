@@ -7,7 +7,7 @@ module Gl
     def list(project = nil)
       if options[:i]
         id = merge_request_dialogue(project)
-        mr = merge_requests.first { |merge_request| merge_request.iid == id.to_i }
+        mr = merge_requests.select { |merge_request| merge_request.iid == id.to_i }.first
         box = TTY::Box.frame(
           width: TTY::Screen.width,
           height: mr.description.lines.count + 4,
@@ -16,7 +16,7 @@ module Gl
                    bottom_left: "State: #{mr.state}",
                    bottom_right: "by #{mr.author.name}" }
         ) do
-          mr.description.gsub("\r", '')
+          mr.description
         end
         puts box
 
