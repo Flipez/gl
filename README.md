@@ -1,5 +1,22 @@
 # Gl
 
+- [Gl](#gl)
+  * [Installation](#installation)
+  * [Usage](#usage)
+    + [Issues](#issues)
+      - [List](#list)
+      - [Open](#open)
+    + [Merge Requests](#merge-requests)
+      - [Interactive](#interactive)
+      - [List](#list-1)
+      - [Open](#open-1)
+      - [Approve](#approve)
+      - [Merge](#merge)
+    + [Registry](#registry)
+  * [Development](#development)
+  * [Contributing](#contributing)
+  * [License](#license)
+
 Gl is a small CLI that hooks into your Git config and GitLab API to easily access information based
 on the project your are currently in.
 
@@ -22,6 +39,8 @@ Commands:
   gl registry        # handle registry of the project
 ```
 
+### Issues
+#### List
 ```bash
 $ gl issues list
 
@@ -34,23 +53,7 @@ $ gl issues list
 | 33  | XXXXXXXXXXXXXX | XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                                  |
 +-----+----------------+-------------------------------------------------------------------------------+
 ```
-
-```bash
-$ gl mr list
-
-+-----+--------------+-------------------------------------------------------------------------------+
-| IID | Author       | Title                                                                         |
-+-----+--------------+-------------------------------------------------------------------------------+
-| 268 | XXXXXXXXXXXX | XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                               |
-| 264 | XXXXXXXXXXXX | XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                               |
-| 217 | XXXXXXXXXXXX | XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                               |
-| 213 | XXXXXXXXXXXX | XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                               |
-| 188 | XXXXXXXXXXXX | XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX                               |
-+-----+--------------+-------------------------------------------------------------------------------+
-```
-
-Both commands offer a interactive switch which opens the selected merge request/issue after selecting:
-
+With interactive switch
 ```bash
 $ gl issues list -i
 
@@ -62,15 +65,73 @@ Open a issue (Use ↑/↓ and ←/→ arrow keys, press Enter to select)
   405 - XXXXXXXXXXXX - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   404 - XXXXXXXXXXXX - XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
-
-Your can also directly open an issue or merge request with a IID:
-
+#### Open
+Open a issue directly with the IID or viathe interactive list
 ```bash
 $ gl issue open 409
-# or
-$ gl mr open 213
 ```
 
+### Merge Requests
+#### Interactive
+```bash
+$ gl mr list -i
+
+Select a merge request (Use ↑/↓ arrow keys, press Enter to select, and letter keys to filter)
+‣ 2 - robert.mueller - WIP: Update README.md
+```
+
+In interactive mode you can also perform all the other actions
+```bash
+$ gl mr list -i
+
+Select a merge request 2 - robert.mueller - WIP: Update README.md
+┌────────────────────────────────────────WIP: Update README.md─────────────────────────────────────────┐
+│                                                                                                      │
+│ # Nec verum procul trahuntur velle                                                                   │
+│                                                                                                      │
+│ ## Foedantem blandis malorum mox                                                                     │
+│                                                                                                      │
+│     chipsetMyspace.perlUltra.font_document(iscsiStandbyPermalink(                                    │
+│             computing_mac_modem, streamingSli));                                                     │
+│     address_operating = 40 + binComputingTransistor + rw * minimize;                                 │
+│     wired(-1, qbe_export);                                                                           │
+│                                                                                                      │
+└State: opened────────────────────────────────────────────────────────────────────────by robert.mueller┘
+What to do next? (Use ↑/↓ arrow keys, press Enter to select)
+‣ open
+  merge
+  approve
+  exit
+
+```
+
+#### List
+```bash
+$ gl mr list
+
++-----+----------------+-----------------------+
+| IID | Author         | Title                 |
++-----+----------------+-----------------------+
+| 2   | robert.mueller | WIP: Update README.md |
++-----+----------------+-----------------------+
+```
+
+#### Open
+```bash
+$ gl mr open 2
+```
+
+#### Approve
+```bash
+$ gl mr approve 2
+```
+
+#### Merge
+```bash
+$ gl mr merge 2
+```
+
+### Registry
 With the registry subcommand you can get a overview about the registry usage.
 
 ```bash
