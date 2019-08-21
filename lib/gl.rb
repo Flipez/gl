@@ -26,7 +26,7 @@ module Gl
 
   def self.open_in_browser(url)
     url = "#{Gitlab.endpoint.gsub('api/v4', '')}#{url}"
-    `sensible-browser #{url}`
+    `sensible-browser #{url} > /dev/null 2>&1`
   end
 
   def self.validate_endpoint!
