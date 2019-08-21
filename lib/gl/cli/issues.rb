@@ -47,7 +47,7 @@ module Gl
 
     def issue_dialogue(project = nil)
       prompt = TTY::Prompt.new(interrupt: :exit)
-      prompt.select('Open a issue') do |menu|
+      prompt.select('Open a issue', filter: true) do |menu|
         issues_list(project).each do |issue|
           menu.choice issue.join(' - '), issue[0]
         end
